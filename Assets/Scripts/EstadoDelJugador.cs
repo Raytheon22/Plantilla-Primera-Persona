@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EstadoDelJugador : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //! Este script se encarga de manipular los estados del jugador.
+
+    [SerializeField] int Vida;
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

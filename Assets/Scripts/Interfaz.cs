@@ -5,20 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class Interfaz : MonoBehaviour
 {
-    public void Menu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
+    //!Este script se encarga de realizar las operaciones de la interfaz.
+    public GameObject UIOpciones;
     public void CargarNivel(string NombreDeNivel)
     {
         SceneManager.LoadScene(NombreDeNivel);
     }
     public void Opciones()
     {
-        Debug.Log("Opciones");
+        Instantiate(UIOpciones, Vector3.zero, Quaternion.identity);
     }
     public void Salir()
     {
         Application.Quit();
+    }
+    public void Atras()
+    {
+        Destroy(this.gameObject);
     }
 }

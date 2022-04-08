@@ -40,7 +40,7 @@ public class Movimiento : MonoBehaviour
     private void Rotacion()
     {
         //*MOVIMIENTO HORIZONTAL DE CAMARA
-        transform.Rotate(0, Input.GetAxis("Mouse X") * 100 * Time.deltaTime, 0); //!falta singleton de sensibilidad
+        transform.Rotate(0, Input.GetAxis("Mouse X") * ManagerConfiguraciones.Sensibilidad * Time.deltaTime, 0); //!falta singleton de sensibilidad
     }
     private void Salto()
     {
@@ -61,7 +61,7 @@ public class Movimiento : MonoBehaviour
         //*MRUV CAIDA LIBRE
         VelocidadY = VelocidadY + Physics.gravity.y * Time.deltaTime;
         Jugador.Move(new Vector3(0, VelocidadY, 0) * Time.deltaTime);
-        Debug.Log("Velocidad final: " + VelocidadY); //! CONTROL
+        //Debug.Log("Velocidad final: " + VelocidadY); //! CONTROL
 
         //*EL JUGADOR ESTA EN EL SUELO?
         if (Jugador.isGrounded)
