@@ -219,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34143492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.39, y: 12.208, z: -6.2}
+  m_LocalPosition: {x: -7.5, y: 40, z: -5.951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 975723456}
@@ -239,9 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Aceleracion: 10
-  FuerzaDeSalto: 20
-  TiempoDeVuelo: 19
-  AlturaDeSalto: 0
+  HabilidadDeSaltar: 1
+  FuerzaDeSalto: 4
 --- !u!114 &34143498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,8 +437,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67823470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.717284, y: 3.69, z: -5.8273296}
-  m_LocalScale: {x: 2.7417, y: 13.895484, z: 2.7417}
+  m_LocalPosition: {x: -7.717284, y: 16.7, z: -5.8273296}
+  m_LocalScale: {x: 2.7417, y: 42.222816, z: 2.7417}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1022,21 +1021,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: Masa
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: VelocidadY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: velocidadY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: PuedeSaltar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: ControlAereo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: AlturaDeSalto
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: FuerzaDeSalto
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297500014531445538, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
+      propertyPath: HabilidadDeSaltar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3297500014531445539, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3297500014531445539, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.39
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 3297500014531445539, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.208
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3297500014531445539, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.2
+      value: -5.951
       objectReference: {fileID: 0}
     - target: {fileID: 3297500014531445539, guid: 659c4407c351c59478abb46a59fb2f1e, type: 3}
       propertyPath: m_LocalRotation.w

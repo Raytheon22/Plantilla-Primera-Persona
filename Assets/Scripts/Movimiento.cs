@@ -6,35 +6,36 @@ public class Movimiento : MonoBehaviour
 {
     //!Este script se encarga de realizar el movimiento del personaje y modificar su horientacion. 
     private CharacterController Jugador;
-    private float Horizontal;
-    private float Vertical;
+    private float VelocidadY;
     [SerializeField] float Aceleracion;
+    [SerializeField] bool HabilidadDeSaltar;
     [SerializeField] float FuerzaDeSalto;
-    [SerializeField] float TiempoDeVuelo;
-    [SerializeField] float AlturaDeSalto;
     private bool Saltando;
-
     void Start()
     {
         Jugador = GetComponent<CharacterController>();
     }
-
     void Update()
     {
-        Horizontal = Input.GetAxis("Horizontal");
-        Vertical = Input.GetAxis("Vertical");
         Rotacion();
         Translacion();
-        Salto();
+        if (HabilidadDeSaltar && Saltando == false)
+        {
+            Salto();
+        }
+        Gravedad();
     }
-
     private void Translacion()
     {
+        float Horizontal;
+        float Vertical;
+        Horizontal = Input.GetAxis("Horizontal");
+        Vertical = Input.GetAxis("Vertical");
         //*HACIA ADELANTE.
         Jugador.Move(transform.forward * Vertical * Aceleracion * Time.deltaTime);
-
         //*HACIA LOS COSTADOS.
         Jugador.Move(transform.right * Horizontal * Aceleracion * Time.deltaTime);
+
     }
     private void Rotacion()
     {
@@ -43,27 +44,30 @@ public class Movimiento : MonoBehaviour
     }
     private void Salto()
     {
-        //*SALTO
-        Jugador.Move(transform.up * AlturaDeSalto * Time.deltaTime);
-
-        //*GRAVEDAD
-        Jugador.Move(Physics.gravity * Time.deltaTime);
-
-        //*FISICA SIMULADA DEL SALTO.
-        //!FALTA PROBAR BIEN.
-        if (Jugador.isGrounded)
+        //*CAMBIO DE SENTIDO DE VELOCIDAD Y ACELERACION.
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Saltando = false;
-            AlturaDeSalto = 0;
-        }
-        if (Jugador.isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            AlturaDeSalto = FuerzaDeSalto;
+            VelocidadY = FuerzaDeSalto * 2;
             Saltando = true;
         }
-        if (Saltando)
+        //*EL JUGADOR ESTA CAYENDO?
+        if (VelocidadY < -1)
         {
-            AlturaDeSalto = AlturaDeSalto - TiempoDeVuelo * Time.deltaTime;
+            Saltando = true;
+        }
+    }
+    private void Gravedad()
+    {
+        //*MRUV CAIDA LIBRE
+        VelocidadY = VelocidadY + Physics.gravity.y * Time.deltaTime;
+        Jugador.Move(new Vector3(0, VelocidadY, 0) * Time.deltaTime);
+        Debug.Log("Velocidad final: " + VelocidadY); //! CONTROL
+
+        //*EL JUGADOR ESTA EN EL SUELO?
+        if (Jugador.isGrounded)
+        {
+            VelocidadY = 0;
+            Saltando = false;
         }
     }
 }
