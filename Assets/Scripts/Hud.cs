@@ -16,6 +16,7 @@ public class Hud : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Instantiate(UIPausa, Vector3.zero, Quaternion.identity);
+            //  Cursor.visible = false;
         }
     }
 }

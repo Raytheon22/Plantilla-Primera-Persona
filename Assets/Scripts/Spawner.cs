@@ -7,12 +7,13 @@ public class Spawner : MonoBehaviour
     //! Este script se encarga de administrar los spawners.
     [SerializeField] bool PuedeSpawnear;
     [SerializeField] int TiempoDeSpawn;
+    [SerializeField] int OrdenDeSpawn;
     [SerializeField] int CantidadPorSpawn;
     [SerializeField] GameObject Entidad;
 
     void Start()
     {
-        SpawnearEntidad();
+        Invoke("SpawnearEntidad", OrdenDeSpawn);
     }
 
     void SpawnearEntidad() //*RECURSIVIDAD.

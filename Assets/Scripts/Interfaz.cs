@@ -8,9 +8,15 @@ public class Interfaz : MonoBehaviour
     //!Este script se encarga de realizar las operaciones de la interfaz.
 
     public GameObject UIOpciones;
+    void Start()
+    {
+        Cursor.visible = true;
+    }
     public void CargarNivel(string NombreDeNivel)
     {
+        Cursor.visible = false;
         SceneManager.LoadScene(NombreDeNivel);
+
     }
     public void Opciones()
     {
