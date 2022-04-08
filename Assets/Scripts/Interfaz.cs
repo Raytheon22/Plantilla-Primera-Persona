@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Interfaz : MonoBehaviour
 {
     //!Este script se encarga de realizar las operaciones de la interfaz.
+
     public GameObject UIOpciones;
     public void CargarNivel(string NombreDeNivel)
     {

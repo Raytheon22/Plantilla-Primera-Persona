@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3520062141321559232}
   - component: {fileID: 3520062141321559235}
   - component: {fileID: 3520062141321559234}
+  - component: {fileID: -1270143447338366877}
   m_Layer: 0
   m_Name: Ojota
   m_TagString: Untagged
@@ -112,3 +113,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-1270143447338366877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520062141321559237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0389082403f1a641923be9bea35917c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,28 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Opciones : MonoBehaviour
 {
+    //! Este script se encarga de administrar la pantalla de opciones del juego.
 
-    void Start()
+    [SerializeField] Slider Sensibilidad;
+    [SerializeField] Slider VolumenMusica;
+    [SerializeField] Slider VolumenEfecto;
+
+    void Awake()
     {
-
+        Sensibilidad.value = ManagerConfiguraciones.Sensibilidad;
+        VolumenMusica.value = ManagerConfiguraciones.VolumenMusica;
+        VolumenEfecto.value = ManagerConfiguraciones.VolumenEfectos;
     }
+
     void Update()
     {
-        Debug.Log(ManagerConfiguraciones.Sensibilidad);
+        if (Sensibilidad.value != ManagerConfiguraciones.Sensibilidad)
+        {
+            ManagerConfiguraciones.Sensibilidad = (int)Sensibilidad.value;
+        }
+        if (VolumenMusica.value != ManagerConfiguraciones.VolumenMusica)
+        {
+            ManagerConfiguraciones.VolumenMusica = (int)VolumenMusica.value;
+        }
+        if (VolumenMusica.value != ManagerConfiguraciones.VolumenEfectos)
+        {
+            ManagerConfiguraciones.VolumenEfectos = (int)VolumenEfecto.value;
+        }
     }
-    public void CambiarSensibilidad(float Numero)
-    {
-        ManagerConfiguraciones.Sensibilidad = (int)Numero;
-    }
-    public void CambiarVolumenMusica(float Numero)
-    {
-        ManagerConfiguraciones.VolumenEfectos = (int)Numero;
-    }
-    public void CambiarVolumenEfectos(float Numero)
-    {
-        ManagerConfiguraciones.VolumenMusica = (int)Numero;
-    }
+
 }

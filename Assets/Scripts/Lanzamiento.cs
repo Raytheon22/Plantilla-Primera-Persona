@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lanzamiento : MonoBehaviour
 {
-    // Start is called before the first frame update+
+    //! Este script se encarga de administrar el lanzamiento de objetos.
     public GameObject chancla;
     public GameObject ObjetoInstanciado;
     void Start()
@@ -12,10 +12,10 @@ public class Lanzamiento : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             ObjetoInstanciado = Instantiate(chancla, this.gameObject.transform.position, Random.rotation);
             ObjetoInstanciado.GetComponent<Rigidbody>().AddForce(this.gameObject.transform.forward * 2000, ForceMode.Acceleration);
