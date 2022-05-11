@@ -8,7 +8,6 @@ public class Movimiento : MonoBehaviour
     private CharacterController Jugador;
     private float VelocidadY;
     [SerializeField] float Aceleracion;
-    [SerializeField] bool HabilidadDeSaltar;
     [SerializeField] float FuerzaDeSalto;
     private bool Saltando;
     void Start()
@@ -19,10 +18,7 @@ public class Movimiento : MonoBehaviour
     {
         Rotacion();
         Translacion();
-        if (HabilidadDeSaltar && Saltando == false)
-        {
-            Salto();
-        }
+        Salto();
         Gravedad();
     }
     private void Translacion()
@@ -61,8 +57,6 @@ public class Movimiento : MonoBehaviour
         //*MRUV CAIDA LIBRE
         VelocidadY = VelocidadY + Physics.gravity.y * Time.deltaTime;
         Jugador.Move(new Vector3(0, VelocidadY, 0) * Time.deltaTime);
-        //Debug.Log("Velocidad final: " + VelocidadY); //! CONTROL
-
         //*EL JUGADOR ESTA EN EL SUELO?
         if (Jugador.isGrounded)
         {
