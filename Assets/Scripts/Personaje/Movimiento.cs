@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    //!Este script se encarga de realizar el movimiento del personaje y modificar su horientacion. 
+    //todo: Este script se encarga de realizar el movimiento del personaje y modificar su horientacion. 
     private CharacterController Jugador;
     private float VelocidadY;
     [SerializeField] float Aceleracion;
     [SerializeField] float FuerzaDeSalto;
     private bool Saltando;
+
     void Start()
     {
+        //! Esto es solo de prueba
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        //!++++++++++++++++++++++++++++++++++++++++
+
         Jugador = GetComponent<CharacterController>();
     }
     void Update()
@@ -36,12 +42,12 @@ public class Movimiento : MonoBehaviour
     private void Rotacion()
     {
         //*MOVIMIENTO HORIZONTAL DE CAMARA
-        transform.Rotate(0, Input.GetAxis("Mouse X") * ManagerConfiguraciones.Sensibilidad * Time.deltaTime, 0); //!falta singleton de sensibilidad
+        transform.Rotate(0, Input.GetAxis("Mouse X") * ManagerConfiguraciones.Sensibilidad * Time.deltaTime, 0);
     }
     private void Salto()
     {
         //*CAMBIO DE SENTIDO DE VELOCIDAD Y ACELERACION.
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !Saltando)
         {
             VelocidadY = FuerzaDeSalto * 2;
             Saltando = true;
