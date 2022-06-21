@@ -14,6 +14,7 @@ public class ManagerConfiguraciones : MonoBehaviour
     {
         if (ConfiguracionesJuego == null)
         {
+            Application.targetFrameRate = 0;
             ConfiguracionesJuego = this;
             DontDestroyOnLoad(this.gameObject);
         }
@@ -25,6 +26,7 @@ public class ManagerConfiguraciones : MonoBehaviour
     }
     void Start()
     {
+
         Sensibilidad = 100;
         VolumenEfectos = 80;
         VolumenMusica = 80;
